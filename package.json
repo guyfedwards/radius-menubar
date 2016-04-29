@@ -1,0 +1,24 @@
+{
+  "name": "radius-menu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./",
+    "build": "rm -rf Radius-Menubar-darwin-x64 && electron-packager . Radius-Menubar --platform=darwin --arch=x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "clipboard": "^1.5.10",
+    "lodash": "^4.11.1",
+    "menubar": "^3.1.0",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "electron-packager": "^7.0.1",
+    "electron-prebuilt": "^0.37.7"
+  }
+}
