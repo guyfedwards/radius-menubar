@@ -12,20 +12,39 @@ ipc.on('update-elements', (arg) => {
   })
 })
 
-updateButton.addEventListener('click', e => {
-  ipc.send('update-colors')
+document.body.addEventListener('click', e => {
+  let action = e.target.getAttribute('data-action')
+
+  switch (action) {
+    case 'update-colors':
+      updateColors()
+      break
+    case 'quit':
+      quit()
+      break
+  }
 })
 
-quitButton.addEventListener('click', e => {
+function updateColors() {
+  ipc.send('update-colors')
+}
+
+function quit() {
   ipc.send('quit')
-})
+}
 
 function createElement(obj) {
-  var el = document.createElement('div')
+  const darkRegEx = /(dark|black)/
+  let el = document.createElement('div')
+  let isDark = darkRegEx.test(obj.name)
 
-  el.innerHTML = `<strong>${obj.name}</strong>
-  <span>${obj.func}</span>`
+  el.innerHTML = `<strong>${obj.name}</strong>`
   el.setAttribute('data-clipboard-text', obj.func)
   el.classList.add(obj.className)
+
+  if (isDark) {
+    el.style.color = '#ffffff';
+  }
+
   return el
 }
