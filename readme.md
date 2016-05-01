@@ -1,6 +1,8 @@
 # Radius Menubar
 A menubar application for easy access to radius variables.
 
+<img src="screenshot.png" width="400" alt="Screenshot" />
+
 
 ##Installation
 ```
